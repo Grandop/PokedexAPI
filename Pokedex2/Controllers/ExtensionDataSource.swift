@@ -22,8 +22,10 @@ extension HomeViewController: UITableViewDataSource {
         pokemom.append(self.pokemom!.results[indexPath.row * 2])
         pokemom.append(self.pokemom!.results[(indexPath.row * 2) + 1])
     
-        cell.configCell(pokemom: pokemom)
+        // criar o reconhecimento de gesto
+    
         
+        cell.configCell(pokemom: pokemom)
         
         return cell
     }
