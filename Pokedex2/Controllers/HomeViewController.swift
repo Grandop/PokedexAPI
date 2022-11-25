@@ -39,7 +39,8 @@ class HomeViewController: UIViewController {
                         
                         self.pokemom = pokemom
                         
-                                                
+                        
+                        
                         DispatchQueue.main.async {
                             self.pokedexTableView.reloadData()
                         }

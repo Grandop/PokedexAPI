@@ -16,8 +16,14 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemomDetailCell
+        
+        var pokemom: [PokemonData] = []
+        
+        pokemom.append(self.pokemom!.results[indexPath.row * 2])
+        pokemom.append(self.pokemom!.results[(indexPath.row * 2) + 1])
     
-        cell.configCell(leftPokemom: (pokemom?.results[indexPath.row * 2])!, rightPokemom: (pokemom?.results[(indexPath.row * 2) + 1])!)
+        cell.configCell(pokemom: pokemom)
+        
         
         return cell
     }

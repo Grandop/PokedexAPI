@@ -7,11 +7,12 @@
 
 import Foundation
 
+
 struct PokemonData: Codable {
     var name: String
     var url: String
     var imageURL: String {
-        var imgURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+        let imgURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
         var id: String = ""
         var barNumber: Int = 0
         
