@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F65500622933ED1B001BFB8A /* PokemomDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F65500612933ED1B001BFB8A /* PokemomDetail.storyboard */; };
+		F65500642933ED43001BFB8A /* PokemomDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65500632933ED43001BFB8A /* PokemomDetailController.swift */; };
 		F677DA612931308D00C862BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DA602931308D00C862BE /* AppDelegate.swift */; };
 		F677DA632931308D00C862BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DA622931308D00C862BE /* SceneDelegate.swift */; };
 		F677DA652931308D00C862BE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DA642931308D00C862BE /* HomeViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F65500612933ED1B001BFB8A /* PokemomDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PokemomDetail.storyboard; sourceTree = "<group>"; };
+		F65500632933ED43001BFB8A /* PokemomDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemomDetailController.swift; sourceTree = "<group>"; };
 		F677DA5D2931308D00C862BE /* Pokedex2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F677DA602931308D00C862BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F677DA622931308D00C862BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				F677DA662931308D00C862BE /* Main.storyboard */,
+				F65500612933ED1B001BFB8A /* PokemomDetail.storyboard */,
 				F677DA7D2931341100C862BE /* PokemomDetailCell.swift */,
 			);
 			path = Views;
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				F677DA642931308D00C862BE /* HomeViewController.swift */,
+				F65500632933ED43001BFB8A /* PokemomDetailController.swift */,
 				F677DA7B2931332700C862BE /* ExtensionDataSource.swift */,
 			);
 			path = Controllers;
@@ -163,6 +169,7 @@
 			files = (
 				F677DA6D2931308E00C862BE /* LaunchScreen.storyboard in Resources */,
 				F677DA6A2931308E00C862BE /* Assets.xcassets in Resources */,
+				F65500622933ED1B001BFB8A /* PokemomDetail.storyboard in Resources */,
 				F677DA682931308D00C862BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +188,7 @@
 				F677DA7E2931341100C862BE /* PokemomDetailCell.swift in Sources */,
 				F677DA78293130D600C862BE /* PokemomData.swift in Sources */,
 				F677DA632931308D00C862BE /* SceneDelegate.swift in Sources */,
+				F65500642933ED43001BFB8A /* PokemomDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

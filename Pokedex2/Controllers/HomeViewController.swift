@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Pokedex"
+        self.navigationController?.navigationBar.tintColor = .black
         getApi()
         pokedexTableView.dataSource = self
     }

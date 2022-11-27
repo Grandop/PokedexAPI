@@ -22,13 +22,31 @@ extension HomeViewController: UITableViewDataSource {
         pokemom.append(self.pokemom!.results[indexPath.row * 2])
         pokemom.append(self.pokemom!.results[(indexPath.row * 2) + 1])
     
-        // criar o reconhecimento de gesto
-    
+        let tapGestureLeft = UITapGestureRecognizer()
+        let tapGestureRight = UITapGestureRecognizer()
+        
+        cell.backgroundLeft.addGestureRecognizer(tapGestureLeft)
+        cell.backgroundRight.addGestureRecognizer(tapGestureRight)
+        
+        tapGestureLeft.addTarget(self, action: #selector(userTap))
+        tapGestureRight.addTarget(self, action: #selector(userTap))
         
         cell.configCell(pokemom: pokemom)
         
         return cell
     }
+    
+    @objc func userTap() {
+        let pokemomDetailStoryboard: UIStoryboard = UIStoryboard(name: "PokemomDetail", bundle: nil)
+        
+        let pokemomDetailVC = pokemomDetailStoryboard.instantiateViewController(withIdentifier: "pokemomDetail") as! PokemomDetailController
+        
+//        pokemomDetailVC.
+        
+        self.navigationController?.pushViewController(pokemomDetailVC, animated: true)
+        
+    }
+    
     
     
 }
