@@ -99,8 +99,12 @@
                     </view>
                     <connections>
                         <outlet property="NamePokemom" destination="mVn-ZA-K4b" id="Jq5-Tu-cU0"/>
+                        <outlet property="attackLabel" destination="Qu4-m4-h5r" id="d7y-LN-K4r"/>
                         <outlet property="backgroundView" destination="Syz-XR-M6B" id="n5g-ja-bSE"/>
+                        <outlet property="defenseLabel" destination="jkP-rg-CZ4" id="0dP-r2-IF3"/>
+                        <outlet property="healthLabel" destination="5S3-Jw-RPQ" id="7sr-WE-4Zg"/>
                         <outlet property="imagePokemom" destination="TkD-TO-OQl" id="fJv-hi-nf6"/>
+                        <outlet property="speedLabel" destination="BJZ-wL-MhD" id="A2Y-pW-rxU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

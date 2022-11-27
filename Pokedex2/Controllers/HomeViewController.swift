@@ -19,7 +19,6 @@ class HomeViewController: UIViewController {
         getApi()
         pokedexTableView.dataSource = self
     }
-
     
     func getApi() {
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=100")
@@ -40,9 +39,7 @@ class HomeViewController: UIViewController {
                         let pokemom = try decoder.decode(Pokemons.self, from: data)
                         
                         self.pokemom = pokemom
-                        
-                        
-                        
+
                         DispatchQueue.main.async {
                             self.pokedexTableView.reloadData()
                         }
