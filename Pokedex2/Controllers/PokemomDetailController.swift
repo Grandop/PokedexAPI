@@ -32,6 +32,7 @@ class PokemomDetailController: UIViewController {
     func setupLayout() {
         backgroundView.layer.cornerRadius = 15
         backgroundView.layer.borderWidth = 2
+        
     }
     
     func getApi() {

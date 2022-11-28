@@ -20,8 +20,8 @@ extension HomeViewController: UITableViewDataSource {
         
         var pokemom: [PokemonData] = []
 
-        var leftPokemon = self.pokemom!.results[indexPath.row * 2]
-        var rightPokemon = self.pokemom!.results[(indexPath.row * 2) + 1]
+        let leftPokemon = self.pokemom!.results[indexPath.row * 2]
+        let rightPokemon = self.pokemom!.results[(indexPath.row * 2) + 1]
         
         pokemom.append(leftPokemon)
         pokemom.append(rightPokemon)
