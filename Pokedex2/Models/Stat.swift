@@ -10,9 +10,10 @@ import Foundation
 struct Stat: Codable {
     var baseStat: Int
     var stat: StatData
-}
-
-enum CodingKeys: String, CodingKey {
-    case baseStat = "base_stat"
     
+    
+    enum CodingKeys: String, CodingKey {
+        case baseStat = "base_stat"
+        case stat
+    }
 }

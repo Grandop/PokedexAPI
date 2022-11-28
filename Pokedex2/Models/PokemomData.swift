@@ -11,10 +11,18 @@ import Foundation
 struct PokemonData: Codable {
     var name: String
     var url: String
-    var id: Int?
-    var stats: [Stat]?
     var imageURL: String {
         let imgURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+       
+        return imgURL + getId() + ".png"
+    }
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+    
+    func getId() -> String {
         var id: String = ""
         var barNumber: Int = 0
         
@@ -30,14 +38,8 @@ struct PokemonData: Codable {
                 break
             }
         }
-        return imgURL + id.reversed() + ".png"
+        return String(id.reversed())
     }
     
-    enum CodingKeys: CodingKey {
-        case name
-        case url
-        case id
-        case stats
-    }
 }
 

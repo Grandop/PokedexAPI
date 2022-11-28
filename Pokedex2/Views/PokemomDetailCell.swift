@@ -13,6 +13,7 @@ class PokemomDetailCell: UITableViewCell {
     @IBOutlet weak var leftNamePokemom: UILabel!
     @IBOutlet weak var rightPokemom: UIImageView!
     @IBOutlet weak var rightNamePokemom: UILabel!
+    
     @IBOutlet weak var backgroundCell: UIView!
     @IBOutlet weak var backgroundLeft: UIView!
     @IBOutlet weak var backgroundRight: UIView!
@@ -33,6 +34,7 @@ class PokemomDetailCell: UITableViewCell {
         rightPokemom.loadFrom(UrlAddress: pokemom[1].imageURL)
     }
 }
+
 extension UIImageView {
     func loadFrom(UrlAddress: String) {
         guard let url = URL(string: UrlAddress) else {return}

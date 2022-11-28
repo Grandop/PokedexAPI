@@ -19,7 +19,9 @@ class PokemomDetailController: UIViewController {
     @IBOutlet weak var defenseLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     
-    var pokemom: PokemonData?
+    var pokemom: PokemonStats?
+    var pokemonId: String!
+    var pokemonImage: [PokemonData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +30,12 @@ class PokemomDetailController: UIViewController {
     }
     
     func setupLayout() {
-//        NamePokemom.text = pokemom?.name.capitalized
         backgroundView.layer.cornerRadius = 15
         backgroundView.layer.borderWidth = 2
     }
     
     func getApi() {
-        let url = URL(string: "https://pokeapi.co/api/v2/pokemon/1")
+        let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(pokemonId ?? "")")
         
         if let url = url {
             var request = URLRequest(url: url)
@@ -47,16 +48,23 @@ class PokemomDetailController: UIViewController {
                 
                 if let data = data, error == nil {
                     do {
-                        let decoder = JSONDecoder()
-                        let pokemom = try decoder.decode(PokemonData.self, from: data)
-                        self.pokemom = pokemom
                         
+                        let decoder = JSONDecoder()
+                        let statsPokemom = try decoder.decode(PokemonStats.self, from: data)
+                        self.pokemom = statsPokemom
+                        
+                        print(statsPokemom.stats![0].baseStat)
                         DispatchQueue.main.async {
-                           
+                            self.NamePokemom.text = self.pokemom?.name.capitalized
+                            self.imagePokemom.image = 
+                            self.healthLabel.text = "Health: \(statsPokemom.stats![0].baseStat)"
+                            self.attackLabel.text = "Attack: \(statsPokemom.stats![1].baseStat)"
+                            self.defenseLabel.text = "Defense: \(statsPokemom.stats![2].baseStat)"
+                            self.speedLabel.text = "Speed: \(statsPokemom.stats![5].baseStat)"
                         }
                         
                     } catch let error {
-                        print(error.localizedDescription)
+                        print(error)
                     }
                 }
             }
@@ -64,5 +72,22 @@ class PokemomDetailController: UIViewController {
         }
     }
 
+}
+
+extension UIImageView {
+    func loadFrom(UrlAddress: String) {
+        guard let url = URL(string: UrlAddress) else {return}
+        
+        DispatchQueue.global().async {
+            let imageData = try? Data(contentsOf: url)
+            DispatchQueue.main.async { [weak self] in
+                if let imageData = imageData {
+                    if let loadedImage = UIImage(data: imageData) {
+                        self?.image = loadedImage
+                    }
+                }
+            }
+        }
+    }
 }
 
