@@ -16,12 +16,12 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemomDetailCell
-        
+                
         var pokemom: [PokemonData] = []
         
         pokemom.append(self.pokemom!.results[indexPath.row * 2])
         pokemom.append(self.pokemom!.results[(indexPath.row * 2) + 1])
-    
+        
         let tapGestureLeft = UITapGestureRecognizer()
         let tapGestureRight = UITapGestureRecognizer()
         
@@ -41,11 +41,12 @@ extension HomeViewController: UITableViewDataSource {
         
         let pokemomDetailVC = pokemomDetailStoryboard.instantiateViewController(withIdentifier: "pokemomDetail") as! PokemomDetailController
         
-//        pokemomDetailVC.
+//        pokemomDetailVC.pokemom = pokemom?.results[10]
         
         self.navigationController?.pushViewController(pokemomDetailVC, animated: true)
         
     }
+    
     
     
     

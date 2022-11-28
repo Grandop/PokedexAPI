@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var pokedexTableView: UITableView!
     var pokemom: Pokemons?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Pokedex"

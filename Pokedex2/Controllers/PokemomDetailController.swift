@@ -19,22 +19,22 @@ class PokemomDetailController: UIViewController {
     @IBOutlet weak var defenseLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     
-    //var pokemom:
+    var pokemom: PokemonData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getApi(id: "1")
+        getApi()
         setupLayout()
     }
     
     func setupLayout() {
-        //NamePokemom.text = pokemom?.
+//        NamePokemom.text = pokemom?.name.capitalized
         backgroundView.layer.cornerRadius = 15
         backgroundView.layer.borderWidth = 2
     }
     
-    func getApi(id: String) {
-        let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")
+    func getApi() {
+        let url = URL(string: "https://pokeapi.co/api/v2/pokemon/1")
         
         if let url = url {
             var request = URLRequest(url: url)
@@ -49,10 +49,10 @@ class PokemomDetailController: UIViewController {
                     do {
                         let decoder = JSONDecoder()
                         let pokemom = try decoder.decode(PokemonData.self, from: data)
-                        //self.pokemom = pokemom
+                        self.pokemom = pokemom
                         
                         DispatchQueue.main.async {
-                            
+                           
                         }
                         
                     } catch let error {
@@ -63,5 +63,6 @@ class PokemomDetailController: UIViewController {
             task.resume()
         }
     }
+
 }
 

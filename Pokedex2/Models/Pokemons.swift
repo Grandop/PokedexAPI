@@ -8,5 +8,5 @@
 import Foundation
 
 struct Pokemons: Codable {
-    var results: [PokemonData]
+    let results: [PokemonData]
 }

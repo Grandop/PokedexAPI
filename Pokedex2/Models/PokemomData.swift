@@ -11,6 +11,8 @@ import Foundation
 struct PokemonData: Codable {
     var name: String
     var url: String
+    var id: Int?
+    var stats: [Stat]?
     var imageURL: String {
         let imgURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
         var id: String = ""
@@ -34,6 +36,8 @@ struct PokemonData: Codable {
     enum CodingKeys: CodingKey {
         case name
         case url
+        case id
+        case stats
     }
 }
 
