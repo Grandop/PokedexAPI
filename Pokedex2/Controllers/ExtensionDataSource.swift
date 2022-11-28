@@ -35,10 +35,12 @@ extension HomeViewController: UITableViewDataSource {
         tapGestureLeft.addTarget(self, action: #selector(userTap))
         tapGestureLeft.namePokemon = leftPokemon.name
         tapGestureLeft.idPokemon = leftPokemon.getId()
+        tapGestureLeft.pokemonImage = pokemom[0].imageURL
         
         tapGestureRight.addTarget(self, action: #selector(userTap))
         tapGestureRight.namePokemon = rightPokemon.name
         tapGestureRight.idPokemon = rightPokemon.getId()
+        tapGestureRight.pokemonImage = pokemom[1].imageURL
         
         cell.configCell(pokemom: pokemom)
         
@@ -52,16 +54,14 @@ extension HomeViewController: UITableViewDataSource {
         let pokemomDetailVC = pokemomDetailStoryboard.instantiateViewController(withIdentifier: "pokemomDetail") as! PokemomDetailController
 
         pokemomDetailVC.pokemonId = sender.idPokemon
-
+        pokemomDetailVC.pokemonImage = sender.pokemonImage
 
         self.navigationController?.pushViewController(pokemomDetailVC, animated: true)
     }
     
 }
-
-
 class PokemonTapGesture: UITapGestureRecognizer {
     var namePokemon: String?
     var idPokemon: String?
-    
+    var pokemonImage: String?
 }

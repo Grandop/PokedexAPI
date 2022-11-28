@@ -21,7 +21,7 @@ class PokemomDetailController: UIViewController {
     
     var pokemom: PokemonStats?
     var pokemonId: String!
-    var pokemonImage: [PokemonData] = []
+    var pokemonImage: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class PokemomDetailController: UIViewController {
                         print(statsPokemom.stats![0].baseStat)
                         DispatchQueue.main.async {
                             self.NamePokemom.text = self.pokemom?.name.capitalized
-                            self.imagePokemom.image = 
+                            self.imagePokemom.loadFrom(UrlAddress: self.pokemonImage ?? "")
                             self.healthLabel.text = "Health: \(statsPokemom.stats![0].baseStat)"
                             self.attackLabel.text = "Attack: \(statsPokemom.stats![1].baseStat)"
                             self.defenseLabel.text = "Defense: \(statsPokemom.stats![2].baseStat)"
@@ -72,22 +72,5 @@ class PokemomDetailController: UIViewController {
         }
     }
 
-}
-
-extension UIImageView {
-    func loadFrom(UrlAddress: String) {
-        guard let url = URL(string: UrlAddress) else {return}
-        
-        DispatchQueue.global().async {
-            let imageData = try? Data(contentsOf: url)
-            DispatchQueue.main.async { [weak self] in
-                if let imageData = imageData {
-                    if let loadedImage = UIImage(data: imageData) {
-                        self?.image = loadedImage
-                    }
-                }
-            }
-        }
-    }
 }
 
