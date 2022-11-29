@@ -54,7 +54,6 @@ class PokemomDetailController: UIViewController {
                         let statsPokemom = try decoder.decode(PokemonStats.self, from: data)
                         self.pokemom = statsPokemom
                         
-                        print(statsPokemom.stats![0].baseStat)
                         DispatchQueue.main.async {
                             self.NamePokemom.text = self.pokemom?.name.capitalized
                             self.imagePokemom.loadFrom(UrlAddress: self.pokemonImage ?? "")
