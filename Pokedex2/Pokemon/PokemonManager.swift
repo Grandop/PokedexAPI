@@ -1,9 +1,19 @@
-
+//
+//  PokemonManager.swift
+//  Pokedex2
+//
+//  Created by Vinicius da Luz on 30/01/23.
+//
 
 import Foundation
 
+protocol PokemonDataDelegate {
+    func passPokemonData()
+}
 
 struct PokemonManager {
+    
+    let pokemonDelegate: PokemonDataDelegate
     
     func getApiHome() {
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=100")
@@ -37,5 +47,5 @@ struct PokemonManager {
             task.resume()
         }
     }
-
+    
 }
