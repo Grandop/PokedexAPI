@@ -7,8 +7,9 @@
 
 import UIKit
 
-class PokemomDetailController: UIViewController {
+class PokemonDetailController: UIViewController {
     
+    @IBOutlet weak var baseStatsView: UIView!
     @IBOutlet weak var NamePokemom: UILabel!
     
     @IBOutlet weak var backgroundView: UIView!
@@ -32,7 +33,7 @@ class PokemomDetailController: UIViewController {
     func setupLayout() {
         backgroundView.layer.cornerRadius = 15
         backgroundView.layer.borderWidth = 2
-        
+        baseStatsView.layer.cornerRadius = 30
     }
     
     func getApi() {

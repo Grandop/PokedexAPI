@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokemomDetailCell: UITableViewCell {
+class PokemonDetailCell: UITableViewCell {
 
     @IBOutlet weak var leftPokemom: UIImageView!
     @IBOutlet weak var leftNamePokemom: UILabel!
@@ -26,12 +26,12 @@ class PokemomDetailCell: UITableViewCell {
         backgroundRight.layer.borderWidth = 2
     }
     
-    func configCell(pokemom: [PokemonData])  {
-        leftNamePokemom.text = pokemom[0].name.capitalized
-        leftPokemom.loadFrom(UrlAddress: pokemom[0].imageURL)
+    func configCell(pokemon: [PokemonData])  {
+        leftNamePokemom.text = pokemon[0].name.capitalized
+        leftPokemom.loadFrom(UrlAddress: pokemon[0].imageURL)
         
-        rightNamePokemom.text = pokemom[1].name.capitalized
-        rightPokemom.loadFrom(UrlAddress: pokemom[1].imageURL)
+        rightNamePokemom.text = pokemon[1].name.capitalized
+        rightPokemom.loadFrom(UrlAddress: pokemon[1].imageURL)
     }
 }
 

@@ -11,20 +11,20 @@ import UIKit
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (pokemom?.results.count ?? 0) / 2
+        return (pokemon?.results.count ?? 0) / 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemomDetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemonDetailCell
         
-        var pokemom: [PokemonData] = []
+        var pokemon: [PokemonData] = []
 
-        let leftPokemon = self.pokemom!.results[indexPath.row * 2]
-        let rightPokemon = self.pokemom!.results[(indexPath.row * 2) + 1]
+        let leftPokemon = self.pokemon!.results[indexPath.row * 2]
+        let rightPokemon = self.pokemon!.results[(indexPath.row * 2) + 1]
         
-        pokemom.append(leftPokemon)
-        pokemom.append(rightPokemon)
+        pokemon.append(leftPokemon)
+        pokemon.append(rightPokemon)
         
         let tapGestureLeft = PokemonTapGesture.init(target: self, action: #selector(self.userTap))
         let tapGestureRight = PokemonTapGesture.init(target: self, action: #selector(self.userTap))
@@ -35,31 +35,32 @@ extension HomeViewController: UITableViewDataSource {
         tapGestureLeft.addTarget(self, action: #selector(userTap))
         tapGestureLeft.namePokemon = leftPokemon.name
         tapGestureLeft.idPokemon = leftPokemon.getId()
-        tapGestureLeft.pokemonImage = pokemom[0].imageURL
+        tapGestureLeft.pokemonImage = pokemon[0].imageURL
         
         tapGestureRight.addTarget(self, action: #selector(userTap))
         tapGestureRight.namePokemon = rightPokemon.name
         tapGestureRight.idPokemon = rightPokemon.getId()
-        tapGestureRight.pokemonImage = pokemom[1].imageURL
+        tapGestureRight.pokemonImage = pokemon[1].imageURL
         
-        cell.configCell(pokemom: pokemom)
+        cell.configCell(pokemon: pokemon)
         
         return cell
     }
     
     @objc func userTap(_ sender: PokemonTapGesture) {
         
-        let pokemomDetailStoryboard: UIStoryboard = UIStoryboard(name: "PokemomDetail", bundle: nil)
+        let pokemonDetailStoryboard: UIStoryboard = UIStoryboard(name: "PokemomDetail", bundle: nil)
 
-        let pokemomDetailVC = pokemomDetailStoryboard.instantiateViewController(withIdentifier: "pokemomDetail") as! PokemomDetailController
+        let pokemonDetailVC = pokemonDetailStoryboard.instantiateViewController(withIdentifier: "pokemomDetail") as! PokemonDetailController
 
-        pokemomDetailVC.pokemonId = sender.idPokemon
-        pokemomDetailVC.pokemonImage = sender.pokemonImage
+        pokemonDetailVC.pokemonId = sender.idPokemon
+        pokemonDetailVC.pokemonImage = sender.pokemonImage
 
-        self.navigationController?.pushViewController(pokemomDetailVC, animated: true)
+        self.navigationController?.pushViewController(pokemonDetailVC, animated: true)
     }
     
 }
+
 class PokemonTapGesture: UITapGestureRecognizer {
     var namePokemon: String?
     var idPokemon: String?

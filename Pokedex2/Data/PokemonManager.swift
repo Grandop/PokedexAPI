@@ -1,33 +1,17 @@
-//
-//  ViewController.swift
-//  Pokedex2
-//
-//  Created by Pedro Grando on 25/11/22.
-//
 
-import UIKit
 
-class HomeViewController: UIViewController {
+import Foundation
 
-    @IBOutlet weak var pokedexTableView: UITableView!
-    var pokemom: Pokemons?
+
+struct PokemonManager {
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "Pokedex"
-        self.navigationController?.navigationBar.tintColor = .black
-        getApi()
-        pokedexTableView.dataSource = self
-    }
-    
-    func getApi() {
+    func getApiHome() {
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=100")
         
         if let url = url {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            request.addValue("aplication/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let session = URLSession.shared
             
@@ -37,9 +21,9 @@ class HomeViewController: UIViewController {
                     do {
                         let decoder = JSONDecoder()
                         
-                        let pokemom = try decoder.decode(Pokemons.self, from: data)
+                        let pokemon = try decoder.decode(Pokemons.self, from: data)
                         
-                        self.pokemom = pokemom
+                        self.pokemon = pokemon
 
                         DispatchQueue.main.async {
                             self.pokedexTableView.reloadData()
@@ -53,8 +37,5 @@ class HomeViewController: UIViewController {
             task.resume()
         }
     }
+
 }
-
-
-
-
