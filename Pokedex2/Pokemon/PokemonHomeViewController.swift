@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol PokemonPresenterOutput: AnyObject {
+    func presenter(pokemonRequest: Pokemons?)
+}
+
+
 class HomeViewController: UIViewController {
     @IBOutlet weak var pokedexTableView: UITableView!
     var pokemon: Pokemons?
+    var pokemonPresenter = PokemonPresenterImplementation()
     var pokemonInteractor = PokemonInteractor()
     
     override func viewDidLoad() {
@@ -21,18 +27,29 @@ class HomeViewController: UIViewController {
         self.title = "Pokedex"
         self.navigationController?.navigationBar.tintColor = .black
         pokedexTableView.dataSource = self
-        pokemonInteractor.pokemonDelegate = self
+        pokemonPresenter.pokemonPresenter = self
+        
         pokemonInteractor.getApiHome()
     }
 }
 
-extension HomeViewController: PokemonDataDelegate {
-    func passPokemonData(pokemonData: Pokemons) {
+//extension HomeViewController: PokemonDataDelegate {
+//    func passPokemonData(pokemonData: Pokemons) {
+//        DispatchQueue.main.async {
+//            self.pokemon = pokemonData
+//            self.pokedexTableView.reloadData()
+//        }
+//    }
+//}
+
+extension HomeViewController: PokemonPresenter {
+    func interactor(pokemonsPresenter: Pokemons?) {
         DispatchQueue.main.async {
-            self.pokemon = pokemonData
+            self.pokemon = pokemonsPresenter
             self.pokedexTableView.reloadData()
         }
     }
+ 
 }
 
 

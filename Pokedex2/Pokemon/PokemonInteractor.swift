@@ -12,7 +12,6 @@ protocol PokemonDataDelegate {
 }
 
 struct PokemonInteractor {
-    
     var pokemonDelegate: PokemonDataDelegate?
     
     func getApiHome() {
