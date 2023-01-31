@@ -11,8 +11,12 @@ protocol PokemonDataDelegate {
     func passPokemonData(pokemonData: Pokemons)
 }
 
-struct PokemonInteractor {
+class PokemonInteractor: PokemonPresenterOutput {
     var pokemonDelegate: PokemonDataDelegate?
+    
+    func presenter() {
+        getApiHome()
+    }
     
     func getApiHome() {
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=100")
@@ -41,5 +45,4 @@ struct PokemonInteractor {
             task.resume()
         }
     }
-    
 }

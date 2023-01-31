@@ -8,12 +8,12 @@
 import UIKit
 
 protocol PokemonPresenterOutput: AnyObject {
-    func presenter(pokemonRequest: Pokemons?)
+    func presenter()
 }
-
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var pokedexTableView: UITableView!
+    var pokemonPresenterProtocol: PokemonPresenterOutput?
     var pokemon: Pokemons?
     var pokemonPresenter = PokemonPresenterImplementation()
     var pokemonInteractor = PokemonInteractor()
@@ -26,21 +26,17 @@ class HomeViewController: UIViewController {
     func setupView() {
         self.title = "Pokedex"
         self.navigationController?.navigationBar.tintColor = .black
+        setProtocols()
+        pokemonPresenterProtocol?.presenter()
+    }
+    
+    func setProtocols() {
         pokedexTableView.dataSource = self
         pokemonPresenter.pokemonPresenter = self
-        
-        pokemonInteractor.getApiHome()
+        pokemonPresenterProtocol = pokemonInteractor
+        pokemonInteractor.pokemonDelegate = pokemonPresenter
     }
 }
-
-//extension HomeViewController: PokemonDataDelegate {
-//    func passPokemonData(pokemonData: Pokemons) {
-//        DispatchQueue.main.async {
-//            self.pokemon = pokemonData
-//            self.pokedexTableView.reloadData()
-//        }
-//    }
-//}
 
 extension HomeViewController: PokemonPresenter {
     func interactor(pokemonsPresenter: Pokemons?) {
@@ -49,7 +45,6 @@ extension HomeViewController: PokemonPresenter {
             self.pokedexTableView.reloadData()
         }
     }
- 
 }
 
 

@@ -12,13 +12,11 @@ protocol PokemonPresenter: AnyObject {
 }
 
 struct PokemonPresenterImplementation: PokemonDataDelegate {
-    
     var pokemonPresenter: PokemonPresenter?
     
     func passPokemonData(pokemonData: Pokemons) {
         pokemonPresenter?.interactor(pokemonsPresenter: pokemonData)
     } 
-    
 }
 
 
