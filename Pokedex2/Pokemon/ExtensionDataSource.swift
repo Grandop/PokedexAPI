@@ -53,7 +53,7 @@ extension HomeViewController: UITableViewDataSource {
 
         let pokemonDetailVC = pokemonDetailStoryboard.instantiateViewController(withIdentifier: "pokemomDetail") as! PokemonDetailController
 
-        pokemonDetailVC.pokemonId = sender.idPokemon
+        PokemonDetailController.pokemonId = sender.idPokemon
         pokemonDetailVC.pokemonImage = sender.pokemonImage
 
         self.navigationController?.pushViewController(pokemonDetailVC, animated: true)

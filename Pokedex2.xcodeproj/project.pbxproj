@@ -24,6 +24,7 @@
 		F677DA7A293130F400C862BE /* Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DA79293130F400C862BE /* Pokemons.swift */; };
 		F677DA7C2931332700C862BE /* ExtensionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DA7B2931332700C862BE /* ExtensionDataSource.swift */; };
 		F677DA7E2931341100C862BE /* PokemonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DA7D2931341100C862BE /* PokemonDetailCell.swift */; };
+		F6A2C0CB2989927A001E08C5 /* PokemonDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A2C0CA2989927A001E08C5 /* PokemonDetailInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F677DA79293130F400C862BE /* Pokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemons.swift; sourceTree = "<group>"; };
 		F677DA7B2931332700C862BE /* ExtensionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDataSource.swift; sourceTree = "<group>"; };
 		F677DA7D2931341100C862BE /* PokemonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailCell.swift; sourceTree = "<group>"; };
+		F6A2C0CA2989927A001E08C5 /* PokemonDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				F65500632933ED43001BFB8A /* PokemonDetailController.swift */,
+				F6A2C0CA2989927A001E08C5 /* PokemonDetailInteractor.swift */,
 				F680556A29884668000E7180 /* Views */,
 			);
 			path = PokemonDetailController;
@@ -233,6 +236,7 @@
 				F677DA78293130D600C862BE /* PokemonData.swift in Sources */,
 				F677DA632931308D00C862BE /* SceneDelegate.swift in Sources */,
 				F65500642933ED43001BFB8A /* PokemonDetailController.swift in Sources */,
+				F6A2C0CB2989927A001E08C5 /* PokemonDetailInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
