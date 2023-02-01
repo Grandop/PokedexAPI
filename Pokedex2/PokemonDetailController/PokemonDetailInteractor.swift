@@ -11,9 +11,13 @@ protocol PokemonDetailDelegate {
     func successAPI(pokemonStats: PokemonStats)
 }
 
-struct PokemonDetailInteractor {
+class PokemonDetailInteractor: DetailPresenterOutput {
     var detailDelegate: PokemonDetailDelegate?
-
+    
+    func presenter() {
+        getApi()
+    }
+    
     func getApi() {
         let url = URL(string: PokemonDetailController.formatURL())
         

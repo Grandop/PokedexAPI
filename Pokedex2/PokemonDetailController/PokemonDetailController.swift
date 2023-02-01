@@ -7,14 +7,15 @@
 
 import UIKit
 
+protocol DetailPresenterOutput: AnyObject {
+    func presenter()
+}
+
 class PokemonDetailController: UIViewController {
-    
     @IBOutlet weak var baseStatsView: UIView!
     @IBOutlet weak var NamePokemom: UILabel!
-    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var imagePokemom: UIImageView!
-    
     @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var attackLabel: UILabel!
     @IBOutlet weak var defenseLabel: UILabel!
@@ -23,7 +24,9 @@ class PokemonDetailController: UIViewController {
     var pokemom: PokemonStats?
     static var pokemonId: String!
     var pokemonImage: String?
-    var pokemonInteractor = PokemonDetailInteractor()
+    var detailPresenter: DetailPresenterOutput?
+    var detailInteractor = PokemonDetailInteractor()
+    var detailPresenterImplementation = DetailPresenterImplementation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +37,14 @@ class PokemonDetailController: UIViewController {
         backgroundView.layer.cornerRadius = 15
         backgroundView.layer.borderWidth = 2
         baseStatsView.layer.cornerRadius = 30
-        pokemonInteractor.detailDelegate = self
-        pokemonInteractor.getApi()
+        setProtocols()
+        detailInteractor.getApi()
+    }
+    
+    func setProtocols() {
+        detailPresenterImplementation.detailPresenter = self
+        detailPresenter = detailInteractor
+        detailInteractor.detailDelegate = detailPresenterImplementation
     }
     
     static func formatURL() -> String {
@@ -44,15 +53,15 @@ class PokemonDetailController: UIViewController {
     }
 }
 
-extension PokemonDetailController: PokemonDetailDelegate {
-    func successAPI(pokemonStats: PokemonStats) {
+extension PokemonDetailController: DetailPresenter {
+    func detailInteractor(pokemonsPresenter: PokemonStats?) {
         DispatchQueue.main.async {
             self.NamePokemom.text = self.pokemom?.name.capitalized
             self.imagePokemom.loadFrom(UrlAddress: self.pokemonImage ?? "")
-            self.healthLabel.text = "Health: \(pokemonStats.stats![0].baseStat)"
-            self.attackLabel.text = "Attack: \(pokemonStats.stats![1].baseStat)"
-            self.defenseLabel.text = "Defense: \(pokemonStats.stats![2].baseStat)"
-            self.speedLabel.text = "Speed: \(pokemonStats.stats![5].baseStat)"
+            self.healthLabel.text = "Health: \(pokemonsPresenter!.stats![0].baseStat)"
+            self.attackLabel.text = "Attack: \(pokemonsPresenter!.stats![1].baseStat)"
+            self.defenseLabel.text = "Defense: \(pokemonsPresenter!.stats![2].baseStat)"
+            self.speedLabel.text = "Speed: \(pokemonsPresenter!.stats![5].baseStat)"
         }
     }
 }
