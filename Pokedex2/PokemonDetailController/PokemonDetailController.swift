@@ -54,7 +54,7 @@ class PokemonDetailController: UIViewController {
 }
 
 extension PokemonDetailController: DetailPresenter {
-    func detailInteractor(pokemonsPresenter: PokemonStats?) {
+    func detailPresenter(pokemonsPresenter: PokemonStats?) {
         DispatchQueue.main.async {
             self.NamePokemom.text = self.pokemom?.name.capitalized
             self.imagePokemom.loadFrom(UrlAddress: self.pokemonImage ?? "")

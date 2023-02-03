@@ -8,14 +8,14 @@
 import Foundation
 
 protocol DetailPresenter {
-    func detailInteractor(pokemonsPresenter: PokemonStats?)
+    func detailPresenter(pokemonsPresenter: PokemonStats?)
 }
 
 struct DetailPresenterImplementation: PokemonDetailDelegate {
     var detailPresenter: DetailPresenter?
     
     func successAPI(pokemonStats: PokemonStats) {
-        detailPresenter?.detailInteractor(pokemonsPresenter: pokemonStats)
+        detailPresenter?.detailPresenter(pokemonsPresenter: pokemonStats)
     }
     
     

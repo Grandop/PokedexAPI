@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol PokemonPresenterOutput: AnyObject {
-    func presenter()
+protocol PokemonPresenter: AnyObject {
+    func interactor()
 }
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var pokedexTableView: UITableView!
-    var pokemonPresenterProtocol: PokemonPresenterOutput?
+    var pokemonPresenterProtocol: PokemonPresenter?
     var pokemon: Pokemons?
     var pokemonPresenter = PokemonPresenterImplementation()
     var pokemonInteractor = PokemonInteractor()
@@ -27,18 +27,18 @@ class HomeViewController: UIViewController {
         self.title = "Pokedex"
         self.navigationController?.navigationBar.tintColor = .black
         setProtocols()
-        pokemonPresenterProtocol?.presenter()
+        pokemonPresenterProtocol?.interactor()
     }
     
     func setProtocols() {
         pokedexTableView.dataSource = self
-        pokemonPresenter.pokemonPresenter = self
+        pokemonPresenter.pokemonPresenterOutPut = self
         pokemonPresenterProtocol = pokemonInteractor
         pokemonInteractor.pokemonDelegate = pokemonPresenter
     }
 }
 
-extension HomeViewController: PokemonPresenter {
+extension HomeViewController: PokemonPresenterOutPut {
     func presenter(pokemonsPresenter: Pokemons?) {
         DispatchQueue.main.async {
             self.pokemon = pokemonsPresenter

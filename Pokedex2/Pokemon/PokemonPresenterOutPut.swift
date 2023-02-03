@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol PokemonPresenter: AnyObject {
+protocol PokemonPresenterOutPut: AnyObject {
     func presenter(pokemonsPresenter: Pokemons?)
 }
 
 struct PokemonPresenterImplementation: PokemonDataDelegate {
-    var pokemonPresenter: PokemonPresenter?
+    var pokemonPresenterOutPut: PokemonPresenterOutPut?
     
     func passPokemonData(pokemonData: Pokemons) {
-        pokemonPresenter?.presenter(pokemonsPresenter: pokemonData)
+        pokemonPresenterOutPut?.presenter(pokemonsPresenter: pokemonData)
     } 
 }
 

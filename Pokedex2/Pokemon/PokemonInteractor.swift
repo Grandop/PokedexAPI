@@ -11,10 +11,10 @@ protocol PokemonDataDelegate {
     func passPokemonData(pokemonData: Pokemons)
 }
 
-class PokemonInteractor: PokemonPresenterOutput {
+class PokemonInteractor: PokemonPresenter {
     var pokemonDelegate: PokemonDataDelegate?
     
-    func presenter() {
+    func interactor() {
         getApiHome()
     }
     
