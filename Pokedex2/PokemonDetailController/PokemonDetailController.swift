@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailPresenterOutput: AnyObject {
-    func presenter()
+    func interactor()
 }
 
 class PokemonDetailController: UIViewController {
@@ -38,7 +38,7 @@ class PokemonDetailController: UIViewController {
         backgroundView.layer.borderWidth = 2
         baseStatsView.layer.cornerRadius = 30
         setProtocols()
-        detailInteractor.getApi()
+        detailInteractor.interactor()
     }
     
     func setProtocols() {

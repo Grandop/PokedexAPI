@@ -14,7 +14,7 @@ protocol PokemonDetailDelegate {
 class PokemonDetailInteractor: DetailPresenterOutput {
     var detailDelegate: PokemonDetailDelegate?
     
-    func presenter() {
+    func interactor() {
         getApi()
     }
     

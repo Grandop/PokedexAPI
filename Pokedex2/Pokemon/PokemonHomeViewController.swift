@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         self.title = "Pokedex"
         self.navigationController?.navigationBar.tintColor = .black
         setProtocols()
-        pokemonPresenterProtocol?.interactor()
+        pokemonInteractor.interactor()
     }
     
     func setProtocols() {
