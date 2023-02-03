@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: PokemonPresenter {
-    func interactor(pokemonsPresenter: Pokemons?) {
+    func presenter(pokemonsPresenter: Pokemons?) {
         DispatchQueue.main.async {
             self.pokemon = pokemonsPresenter
             self.pokedexTableView.reloadData()
