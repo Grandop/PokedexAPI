@@ -4,9 +4,17 @@
 
 - Screens made with storyboard
 
+- UINavigationController for navigation between screens
+
 - Simplified Vip architecture
 
 - The API request was made natively
+
+- UITableView
+
+- Autolayout, StackView
+
+- TapGesture to recognize screen touch
 
 Preview of the App:
 
