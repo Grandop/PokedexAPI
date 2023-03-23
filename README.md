@@ -1,9 +1,12 @@
 # PokedexAPI
 
+- The app is a pokedex that shows a list of pokemons and when it is clicked its attributes are displayed
 
-Preview do App:
+- Screens made with storyboard
 
-O app é uma pokedex, mostra uma lista de pokemons e quando ele é clicado é exibido seus atributos
+- Simplified Vip architecture
+
+Preview of the App:
 
 https://user-images.githubusercontent.com/104664138/226363676-4aa69e25-ae40-4daa-842a-2e36087ff8c5.mp4
 
