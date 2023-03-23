@@ -16,7 +16,7 @@
 
 - TapGesture to recognize screen touch
 
-Preview of the App:
+App Preview:
 
 https://user-images.githubusercontent.com/104664138/226363676-4aa69e25-ae40-4daa-842a-2e36087ff8c5.mp4
 
